@@ -4,9 +4,7 @@ Entity integrity plays a crucial role in ensuring data quality within a relation
 
 ## Overview
 
-Experiment results, scripts and artifacts accompanying our research can be found in this Github repository.
-
-It contains the following:
+This repository contains the following:
 
 - results from applying our methodology framework to the TPC-H benchamrk
 - files and instructions on how to replicate experiments
