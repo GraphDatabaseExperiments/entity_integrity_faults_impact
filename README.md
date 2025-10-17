@@ -2,6 +2,28 @@
 
 Entity integrity plays a crucial role in ensuring data quality within a relational database. When violated, it leads to various faults that affect the accuracy and reliability of database queries. This repository provides scripts and artifacts from our experiments using a methodology for quantifying the impact of entity integrity faults on database query performance.
 
+## Overview
+
+Experiment results, scripts and artifacts accompanying our research can be found in this Github repository.
+
+It contains the following:
+
+- results from applying our methodology framework to the TPC-H benchamrk
+- files and instructions on how to replicate experiments
+
+# Software Requirements:
+
+The software used to perform the experiments carried out in our research are:
+
+- Python 3.12.2
+
+- MySQL 8.0.40
+
+
+The TPC-H benchmark is provided on the official [TPC website](https://www.tpc.org/tpch/). 
+
+
+
 
 ## Methodology
 
