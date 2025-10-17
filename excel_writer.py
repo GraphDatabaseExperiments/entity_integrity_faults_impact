@@ -2,7 +2,6 @@ import xlsxwriter # writing to excel
 from openpyxl import load_workbook
 import os
 from datetime import datetime
-import pandas
 
 
 

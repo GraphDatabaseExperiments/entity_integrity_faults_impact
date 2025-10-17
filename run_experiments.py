@@ -1,12 +1,6 @@
-import mysql.connector
-import time
 import create_random_parameters
-import random
-import winsound # for trouble shooting
 
-# can be deleted after output testing again
-import pandas as pd
-import os
+
 
 
 #########################
@@ -749,14 +743,6 @@ def run(cursor, table_name, query_number, scaling_factor, scenario): # insert co
 
 
     # run benchmark query
-
-
-    #queries = [query_1, query_2, query_3, query_4, query_5, query_6, query_7, query_8, query_9, query_10,
-    #       query_11, query_12, query_13, query_14, query_15, query_16, query_17, query_18, query_19, query_20,
-    #       query_21, query_22]
-    
-    #queries = [query_1, query_2, query_3, query_4, query_5, query_6, query_7, query_8, query_9, query_10,
-    #    query_11, query_12, query_13, query_14, query_15, query_16, query_17, [[],["SELECT * FROM region;"]], query_19, query_20, query_21, query_22]
     
     queries = [query_1, query_2, query_3, query_4, query_5, query_6, query_7, query_8, query_9, query_10,
         query_11, query_12, query_13, query_14, query_15, query_16, query_17, query_18, query_19, query_20, query_21, query_22]

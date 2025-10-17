@@ -22,22 +22,22 @@ if __name__ == "__main__":
 
 
 
-    #query_numbers = range(1,23)
+    query_numbers = range(1,23)
 
-    #percentages_with_error = [0, 0.01, 0.1, 1, 10]  # enter amount of %, i.e. will be divided by 100 later, start with 0 to have time comparisson between query with PK and without
+    percentages_with_error = [0, 0.01, 0.1, 1, 10]  # enter amount of %, i.e. will be divided by 100 later, start with 0 to have time comparisson between query with PK and without
 
 
 
-    query_numbers = [1,8,11,19,20]
+    #query_numbers = [1,8,11,19,20]
 
-    percentages_with_error = [0]
+    #percentages_with_error = [0]
 
 
 
     amount_of_queries = 22
 
 
-    runs = 50
+    runs = 100
 
 
     precission_accuracy = 4 # accuracy of recall and precision
@@ -305,19 +305,6 @@ if __name__ == "__main__":
                     median_precissions.append(statistics.median(collected_precissions[query_number - 1][index]))
                     max_precissions.append(max(collected_precissions[query_number - 1][index]))
 
-
-
-                    """
-                    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-                    print(f"Query {query_number}")
-                    print("Accuracy (org / adj)")
-                    print(average_accuracy)
-                    if sum(distortions[query_number - 1][index]) != 0:
-                        print(round(sum(intersections[query_number - 1][index])/len(intersections[query_number - 1][index]), precission_accuracy) / round(sum(distortions[query_number - 1][index])/len(distortions[query_number - 1][index]), precission_accuracy))
-                    else:
-                        print("NaN")
-                    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-                    """
 
                 else:
                     average_query_original_output_amounts.append("X")
