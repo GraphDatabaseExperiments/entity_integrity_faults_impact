@@ -146,24 +146,6 @@ def duplicate(connection, cursor, table_name: str, key_attributes: list, fk_attr
     create_parent_table_fks(cursor, table_name, fk_attributes_child, fk_attributes_parent)
 
 
-
-    # add FK constraints from child table(s)
-    #
-    # also add FK constraints to child tables in null and deep integrity scenario, only speed up, accuracy won't change
-    """
-    # maybe not add fks to child table as index creation on key attributes on altered table necessary
-    
-    child_tables = get_child_tables(table_name)
-
-    fk_creation = []
-    if len(child_tables) > 0:
-        pass #add to fk_creation index creation for key attribute in table_name / this will again speed up query execution even if fk not being used
-    for index in range(len(child_tables)):
-        fk_creation.append(f"ALTER TABLE {child_tables[index]} DROP CONSTRAINT {child_tables[index]}_{table_name}_fk")
-
-    for subquery in fk_creation:
-        cursor.execute(subquery)
-    """
     connection.commit()
 
 
@@ -290,27 +272,11 @@ def duplicate_deep_entity_integrity(connection, cursor, table_name: str, key_att
 
     create_parent_table_fks(cursor, table_name, fk_attributes_child, fk_attributes_parent)
 
-
-
-    # create copy of referenced table(s) and change foreign keys in referenced table to randomly either reference original or duplicated (with new key) entity
-
-    # might have to change to nested lists as nation has child tables customer and supplier and lineitem child of orders and partsupp
-    #
-    # issues for copying partsupp and introducing new records as new pk attributes on partsupp violate fks from partsupp to part and to supplier
-    # same for copying lineitem with new pk values on l_ordkery violating fk from lineitem to orders
-    #
-    # also loop below would need changing to altering fks in multiple tables in case table_name is nation
-    #  |
-    #  v
-
     child_tables = get_child_tables(table_name)
 
     #child_fk_attributes = {'region' : ["n_regionkey"],'nation' :  ["c_nationkey"],'customer' :  ["o_custkey"],'orders' :  ["l_orderkey"],'supplier' :  ["ps_suppkey"],'part' :  ["ps_partkey"],'partsupp' :  ["l_partkey", "l_suppkey"],'lineitem' :  []}
     child_fk_attributes = {'region' : [{}],'nation' :  {'region' : ["n_regionkey"]},'customer' : {'nation' : ["c_nationkey"]},'orders' :  {'customer' : ["o_custkey"]},'supplier' : {'nation' : ["s_nationkey"]},'part' :  [{}],'partsupp' :  {'part' : ["ps_partkey"], 'supplier' : ["ps_suppkey"]},'lineitem' :  {'partsupp' : ["l_partkey", "l_suppkey"], 'orders' : ["l_orderkey"]}}
 
-    # should ideally be recursive depending on how far pk attributes propagate along child table chain
-    #  |
-    #  v
 
     for new_table in child_tables:
         table_copying(cursor, new_table)
@@ -336,12 +302,7 @@ def duplicate_deep_entity_integrity(connection, cursor, table_name: str, key_att
             for subquery in fk_altering_query:
                 cursor.execute(subquery)
 
-        # propagate changes in partsupp consistently up to lineitem
-        #
-        # ideally generalize part below
-        #  |
-        #  v
-
+        
         if new_table == "partsupp":
             if table_name == "part":
                 fk_propagation_query =["DROP TABLE IF EXISTS excluded;",
@@ -395,6 +356,7 @@ def duplicate_deep_entity_integrity(connection, cursor, table_name: str, key_att
     cursor.execute(temp_table_creation)
 
     connection.commit()
+
 
 
 
