@@ -46,5 +46,5 @@ Performance: Quantifies how the faults affect the execution time and resource co
 
 The methodology is applied to the TPC-H benchmark, a widely-used standard for evaluating the performance of database management systems. By running queries on datasets with different levels of entity integrity faults, we demonstrate the impact of these faults on analytical query workloads.
 
-The results of our experiments can be found in this repository: [Results](/results)
+The results of our experiments can be found in this repository in the [results folder](/results)
 
