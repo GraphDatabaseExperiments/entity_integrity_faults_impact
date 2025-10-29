@@ -28,10 +28,6 @@ if __name__ == "__main__":
 
 
 
-    #query_numbers = [1,8,11,19,20]
-
-    #percentages_with_error = [0]
-
 
 
     amount_of_queries = 22
@@ -372,6 +368,7 @@ if __name__ == "__main__":
     my_cursor.close()
 
     my_db_conncetion.close()
+
 
 
 
