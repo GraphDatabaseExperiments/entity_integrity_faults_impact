@@ -42,9 +42,9 @@ Recall: Evaluates the completeness of the query results under such faults.
 Performance: Quantifies how the faults affect the execution time and resource consumption of database queries.
 
 
-## TPC-H Benchmark:
+## Proof of Concept:
 
-The methodology is applied to the TPC-H benchmark, a widely-used standard for evaluating the performance of database management systems. By running queries on datasets with different levels of entity integrity faults, we demonstrate the impact of these faults on analytical query workloads.
+As proof of conecept we applied our methodology to the TPC-H benchmark, a widely-used standard for evaluating the performance of relational database management systems. By running queries on datasets with different levels of entity integrity faults, we demonstrate the impact of these faults on analytical query workloads. We measure recall and precision of queries in addition to execution time.
 
 The results of our experiments can be found in this repository in the [results folder](/results)
 
