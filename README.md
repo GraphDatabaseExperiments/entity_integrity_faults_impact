@@ -25,21 +25,19 @@ The TPC-H benchmark is provided on the official [TPC website](https://www.tpc.or
 
 ## Methodology
 
-In this work, we propose a comprehensive methodology for evaluating the impact of entity integrity faults in relational databases. Key components of the methodology include:
+In this work, we propose a comprehensive methodology for evaluating the impact of entity integrity faults in databases. It focuses on three causes of entity integrity faults: duplicate records, missing values in primary key attributes, and deep entity integrity violations where real-world entities are recorded multiple times with different identifiers. The methodology evaluates query accuracy using recall and precision metrics, comparing outputs from clean and faulty datasets. Additionally, it considers performance by measuring query execution time. Underneath we listed how these metrics are cacluated.
 
-Data Quality Metrics:
+###Recall:
 
-Uniqueness: Ensures that each entity is represented by a unique identifier.
+Recall measures the proportion of correct query answers preserved after introducing entity integrity faults. It compares the overlap between the clean and faulty dataset query results.
 
-Completeness: Assesses whether data records are fully populated.
+###Precision:
 
-Impact on Query Metrics:
+Precision evaluates how many of the new query answers from the dirty dataset are correct. It compares the overlap between the clean and dirty query results.
 
-Precision: Measures how accurate the query results are when entity integrity faults are present.
+###Performance:
 
-Recall: Evaluates the completeness of the query results under such faults.
-
-Performance: Quantifies how the faults affect the execution time and resource consumption of database queries.
+Performance is measured by query execution time, which evaluates how entity integrity faults affect the efficiency of database operations, especially in cases where primary keys are not enforced and a correpsonding index is not present in the database.
 
 
 ## Proof of Concept:
