@@ -9,7 +9,7 @@ This repository contains the following:
 - results from applying our methodology framework to the TPC-H benchamrk
 - files and instructions on how to replicate experiments
 
-# Software Requirements:
+## Software Requirements:
 
 The software used to perform the experiments carried out in our research are:
 
