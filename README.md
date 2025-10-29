@@ -27,15 +27,15 @@ The TPC-H benchmark is provided on the official [TPC website](https://www.tpc.or
 
 In this work, we propose a comprehensive methodology for evaluating the impact of entity integrity faults in databases. It focuses on three causes of entity integrity faults: duplicate records, missing values in primary key attributes, and deep entity integrity violations where real-world entities are recorded multiple times with different identifiers. The methodology evaluates query accuracy using recall and precision metrics, comparing outputs from clean and faulty datasets. Additionally, it considers performance by measuring query execution time. Underneath we listed how these metrics are cacluated.
 
-###Recall:
+### Recall:
 
 Recall measures the proportion of correct query answers preserved after introducing entity integrity faults. It compares the overlap between the clean and faulty dataset query results.
 
-###Precision:
+### Precision:
 
 Precision evaluates how many of the new query answers from the dirty dataset are correct. It compares the overlap between the clean and dirty query results.
 
-###Performance:
+### Performance:
 
 Performance is measured by query execution time, which evaluates how entity integrity faults affect the efficiency of database operations, especially in cases where primary keys are not enforced and a correpsonding index is not present in the database.
 
