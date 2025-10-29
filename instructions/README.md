@@ -25,4 +25,10 @@ percentages_with_error = [0, 0.01, 0.1, 1, 10]
 runs = 100
 ```
 
-For scenario the values 'duplication', 'null' and 'deep_integrity' can be chosen to inject the dataset with one of the three kinds of entity integrity violations. For scaling_factor a value has to be decided for which TPC-H has been generated. In our experiments we have chosen 0.01, 0.1 and 1. For more information on TPC-H we refer to the [dataset folder](/./dataset). For query_numbers the benchmark queries that are supposed to be executed can be set. For the full TPC-H workload this can remain as is. The values in percentages_with_error determine which percentage of integrity violations should be injected. Each element in this list determines a percentage for which the amount of experiment runs specified by the variable runs is executed. The value 0 is included as this is used to determine the execution time on the original and dirty dataset. Here, the dirty dataset includes 0% entity integrity faults, i.e. is the original dataset, however, primary keys and associated indices have been removed.
+For scenario the values 'duplication', 'null' and 'deep_integrity' can be chosen to inject the dataset with one of the three kinds of entity integrity violations.
+
+For scaling_factor a value has to be decided for which TPC-H has been generated. In our experiments we have chosen 0.01, 0.1 and 1. For more information on TPC-H we refer to the [dataset folder](/./dataset).
+
+For query_numbers the benchmark queries that are supposed to be executed can be set. For the full TPC-H workload this can remain as is.
+
+The values in percentages_with_error determine which percentage of integrity violations should be injected. Each element in this list determines a percentage for which the amount of experiment runs specified by the variable runs is executed. The value 0 is included as this is used to determine the execution time on the original and dirty dataset. Here, the dirty dataset includes 0% entity integrity faults, i.e. is the original dataset, however, primary keys and associated indices have been removed.
