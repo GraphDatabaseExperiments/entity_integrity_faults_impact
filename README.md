@@ -44,5 +44,7 @@ Performance is measured by query execution time, which evaluates how entity inte
 
 As proof of concept we applied our methodology to the TPC-H benchmark, a widely-used standard for evaluating the performance of relational database management systems. By running queries on datasets with different levels of entity integrity faults, we demonstrate the impact of these faults on analytical query workloads. We measure recall and precision of queries in addition to execution time.
 
-The results of our experiments can be found in this repository in the [results folder](/results)
+Information on how to replicate the experiments can be found in the [instructions folder](/instructions).
+
+The results of our experiments are located in this repository in the [results folder](/results)
 
