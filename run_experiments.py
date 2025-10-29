@@ -2,8 +2,11 @@ import create_random_parameters
 
 
 
-
-#########################
+#################################################
+#
+# Helper Functions
+#
+#################################################
 
 
 def get_parent_tables(table_name: str) -> list:
@@ -47,7 +50,11 @@ def get_child_tables(table_name: str) -> list:
 
 
 
+#################################################
+#
 # Execute experiments
+#
+#################################################
 
 
 def run(cursor, table_name, query_number, scaling_factor, scenario): # insert connection as parameter for output testing
@@ -755,14 +762,6 @@ def run(cursor, table_name, query_number, scaling_factor, scenario): # insert co
     # create query setting with random parameters staying the same for original table and table with duplicates
 
 
-    # become redundant, parameters now created in Python and not in SQL
-    """ 
-    query_parameter_setting = query[0] 
-    for subquery in query_parameter_setting:
-        cursor.execute(subquery, multi=True)
-    """
-
-
     if query_number == 15:
         
         # regular view creation
@@ -798,13 +797,6 @@ def run(cursor, table_name, query_number, scaling_factor, scenario): # insert co
 
 
 
-
-    # select scenario to either only change one table to copy_<table_name> (for entity integrity experiments) or make changes to multiple tables
-    #
-    # should ideally be recursive depending on how far pk attributes propagate along child table chain
-    #  |
-    #  v
-
     adjusted_query = adjusted_query.replace(table_name, "copy_" + table_name)
 
     if scenario == 'deep_integrity':
@@ -814,7 +806,7 @@ def run(cursor, table_name, query_number, scaling_factor, scenario): # insert co
       for table_to_change in tables_to_change:
           adjusted_query = adjusted_query.replace(table_to_change, "copy_" + table_to_change)
           
-          if table_to_change == 'partsupp': # this is hard-coded and shoudld ideally be done via recursion
+          if table_to_change == 'partsupp':
               tables_of_child_to_change = get_child_tables(table_to_change)
               for table_of_child_to_change in tables_of_child_to_change:
                   adjusted_query = adjusted_query.replace(table_of_child_to_change, "copy_" + table_of_child_to_change)
@@ -873,22 +865,6 @@ def run(cursor, table_name, query_number, scaling_factor, scenario): # insert co
 
 
 
-
-    #columns_for_query = [column[0] for column in cursor] # accesing tuple column without leading
-
-
-    #join_condition = f" ON result_1.{columns_for_query[0]} = result_2.{columns_for_query[0]} " 
-    #for column in columns_for_query[1:]:
-    #    join_condition += f"AND result_1.{column} = result_2.{column} "
-
-    #not_null_condition = f" WHERE (result_1.{columns_for_query[0]} IS NOT NULL OR result_2.{columns_for_query[0]} IS NOT NULL) " 
-    #for column in columns_for_query[1:]:
-    #    not_null_condition += f"OR (result_1.{columns_for_query[0]} IS NOT NULL OR result_2.{columns_for_query[0]} IS NOT NULL) "
-
-    #query_second = [f"SELECT COUNT(*) FROM (SELECT * FROM result_1 LEFT JOIN result_2 {join_condition} {not_null_condition}) AS alias1 UNION (SELECT * FROM result_1 RIGHT JOIN result_2 {join_condition} {not_null_condition})"]
-    #                "DROP VIEW result_1;",
-    #                "DROP VIEW result_2;"]
-
     query_union = "SELECT COUNT(*) FROM (SELECT * FROM result_1 UNION SELECT * FROM result_2) AS union_count;"
     cursor.execute(query_union)
 
@@ -920,40 +896,6 @@ def run(cursor, table_name, query_number, scaling_factor, scenario): # insert co
     for result in cursor:
         amount_distorted = result[0]
 
-
-    ######################################
-    #  for debugging purposes only
-    """
-    query_original = "SELECT * FROM result_1;"
-    cursor.execute(query_original)
-
-    print()
-    for result in cursor:
-        print(result)
-    print()
-    print()
-
-
-    query_error = "SELECT * FROM result_2;"
-    cursor.execute(query_error)
-
-    for result in cursor:
-        print(result)
-
-    print()
-    """
-
-
-    ######################################
-
-    
-    """
-    # for trouble shooting, can be removed again
-    for secs in range(10,0,-1):
-      print(f"{secs} seconds to view experiment experiment results")
-      winsound.Beep(2500, 1000)
-      time.sleep(1)
-    """
     
 
 
@@ -975,31 +917,12 @@ def run(cursor, table_name, query_number, scaling_factor, scenario): # insert co
     for subquery in query_result_deletion:
         cursor.execute(subquery, multi=True)
 
-    #times = [round(time_of_run, precision) for time_of_run in sorted(times)[outliers:-outliers]]
-
-
-    #average_time = round(sum(times)/(runs - 2*outliers), precision)
-
-
 
     query_string = "\n".join(["\n".join(subquery) for subquery in query])
 
 
-    # now done in main python file
-    """
-    if scenario == 'deep_integrity':
-      # adjust in case deletion of parents and / or parents of parents is required!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      # |
-      # V
-
-      child_tables_to_drop = get_child_tables(table_name)
-
-      for child_to_drop in child_tables_to_drop:
-          cursor.execute(f"DROP TABLE IF EXISTS copy_{child_to_drop};")
-    """
-
-
     return query_string, original_query_time_in_ms, distorted_query_time_in_ms, amount_original, amount_distorted, union_count - intersect_count, intersect_count
+
 
 
 
