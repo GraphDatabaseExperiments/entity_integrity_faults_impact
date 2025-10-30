@@ -40,7 +40,7 @@ Precision evaluates how many of the new query answers from the dirty dataset are
 Performance is measured by query execution time, which evaluates how entity integrity faults affect the efficiency of database operations, especially in cases where primary keys are not enforced and a correpsonding index is not present in the database.
 
 <p align="center" width="100%">
-<img src="/methodology_framework.png" alt="TPC-H schema" width="60%"/>
+<img src="/methodology_framework.png" alt="Methodology Framework" width="50%"/>
 </p>
 
 
