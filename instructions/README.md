@@ -4,7 +4,7 @@ This file contains instructions on how to recreate the experiments conducted in 
 
 ## Execution
 
-The main script to run our experiments is data_integrity_effects_sql.py. To establish a connection with a MySQL database a file called mysql_auth.txt has be created with corresponding credentials.
+The main script to run our experiments is data_integrity_effects_sql.py. To establish a connection with a MySQL database a file called mysql_auth.txt has to be created with corresponding credentials.
 
 ### Parameter Settings
 
