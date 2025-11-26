@@ -1,6 +1,6 @@
 # Dataset and Experiment setup 
 
-For the TPC-H dataset we refer to the [TPC website](https://www.tpc.org/tpch/). For convenience we have provided the SQL files for TPC-H with scaling factor 0.01 (TPC-H small) here. For other scaling factors the user would have to generate TPC-H instances and export the tables into csv format.
+For the TPC-H dataset we refer to the [TPC website](https://www.tpc.org/tpch/). For convenience we have provided the SQL files for TPC-H with scaling factor 0.01 (TPC-H small) here. For other scaling factors the user would have to generate TPC-H instances and export the tables into csv format. Readily available files for download can also be found on [this website](https://courses.cms.caltech.edu/cs122/assignments/challenge1.html).
 
 The image below shows the TPC-H relational database schema:
 
