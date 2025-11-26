@@ -12,26 +12,21 @@ from datetime import datetime
 
 if __name__ == "__main__":
     
-
-
-    # Experiment setting
+    #######################
+    #                     #
+    # Experiment settings #
+    #                     #
+    #######################
 
     scenario = 'duplication'
 
     scaling_factor = 1
 
-
-
     query_numbers = range(1,23)
 
     percentages_with_error = [0, 0.01, 0.1, 1, 10]  # enter amount of %, i.e. will be divided by 100 later, start with 0 to have time comparisson between query with PK and without
-
-
-
-
-
-    amount_of_queries = 22
-
+    
+    amount_of_queries = 22 # leave unchanged
 
     runs = 100
 
@@ -368,6 +363,7 @@ if __name__ == "__main__":
     my_cursor.close()
 
     my_db_conncetion.close()
+
 
 
 
