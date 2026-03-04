@@ -27,22 +27,25 @@ The TPC-H benchmark is provided on the official [TPC website](https://www.tpc.or
 
 In this work, we propose a comprehensive methodology for evaluating the impact of entity integrity faults in databases. It focuses on three causes of entity integrity faults: duplicate records, missing values in primary key attributes, and deep entity integrity violations where real-world entities are recorded multiple times with different identifiers. Different scaling factors of the datasets are chosen and different percentages of each of these violations are injected into the dataset to measure the impact of these dimensions. The methodology evaluates query accuracy using recall and precision metrics, comparing outputs from clean and faulty datasets. Additionally, it considers performance by measuring query execution time. Underneath we listed how these metrics are cacluated.
 
+<p align="center" width="100%">
+<img src="/methodology_framework.png" alt="Methodology Framework" width="50%"/>
+</p>
+
+
+
 ### Recall:
 
-Recall measures the proportion of correct query answers preserved after introducing entity integrity faults. It compares the overlap between the clean and faulty dataset query results.
+Recall measures the proportion of correct query answers preserved after introducing entity integrity faults. It compares the overlap between the clean and faulty dataset query results. The aggregated values and charts presented in our research can be obtained as outlined in the [experiment instructions](/instructions)
 
 ### Precision:
 
-Precision evaluates how many of the new query answers from the dirty dataset are correct. It compares the overlap between the clean and dirty query results.
+Precision evaluates how many of the new query answers from the dirty dataset are correct. It compares the overlap between the clean and dirty query results. The aggregated values and charts presented in our research can be obtained as outlined in the [experiment instructions](/instructions)
 
 ### Performance:
 
 Performance is measured by query execution time, which evaluates how entity integrity faults affect the efficiency of database operations, especially in cases where primary keys are not enforced and a correpsonding index is not present in the database.
 
-<p align="center" width="100%">
-<img src="/methodology_framework.png" alt="Methodology Framework" width="50%"/>
-</p>
-
+The heatmap that is presented in our research can be obtained as outlined in the [experiment instructions](/instructions)
 
 
 ## Proof of Concept:
