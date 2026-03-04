@@ -32,3 +32,9 @@ For *scaling_factor* a value has to be decided for which TPC-H has been generate
 For *query_numbers* the benchmark queries that are supposed to be executed can be set. For the full TPC-H workload this can remain as is.
 
 The values in *percentages_with_error* determine which percentage of integrity violations should be injected. Each element in this list determines a percentage for which the amount of experiment runs specified by the variable *runs* is executed. The value 0 is included as this is used to determine the execution time on the original and dirty dataset. Here, the dirty dataset includes 0% entity integrity faults, i.e. is the original dataset, however, primary keys and associated indices have been removed.
+
+
+
+### Result and chart generation
+
+Once all results are obtained they can be collated as shown in the data.csv file in the [charts folder](/./charts). This file can then be used to obtain average and mean values for different scenarios and scaling factors as used in our paper. In addition, these results can be used to create the heatmap providing information on performance gains through index introduction. Using the R file in the same folder the respective charts shown in the paper can be generated.
