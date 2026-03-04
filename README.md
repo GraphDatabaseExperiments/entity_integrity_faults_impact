@@ -31,21 +31,20 @@ In this work, we propose a comprehensive methodology for evaluating the impact o
 <img src="/methodology_framework.png" alt="Methodology Framework" width="50%"/>
 </p>
 
-
-
-### Recall:
-
-Recall measures the proportion of correct query answers preserved after introducing entity integrity faults. It compares the overlap between the clean and faulty dataset query results. The aggregated values and charts presented in our research can be obtained as outlined in the [experiment instructions](/instructions)
-
-### Precision:
-
-Precision evaluates how many of the new query answers from the dirty dataset are correct. It compares the overlap between the clean and dirty query results. The aggregated values and charts presented in our research can be obtained as outlined in the [experiment instructions](/instructions)
-
 ### Performance:
 
 Performance is measured by query execution time, which evaluates how entity integrity faults affect the efficiency of database operations, especially in cases where primary keys are not enforced and a correpsonding index is not present in the database.
 
 The heatmap that is presented in our research can be obtained as outlined in the [experiment instructions](/instructions)
+
+
+### Recall:
+
+Recall measures the proportion of correct query answers preserved after introducing entity integrity faults. It compares the overlap between the clean and faulty dataset query results. The aggregated values and charts presented in our research can be obtained as outlined in the [experiment instructions](/instructions).
+
+### Precision:
+
+Precision evaluates how many of the new query answers from the dirty dataset are correct. It compares the overlap between the clean and dirty query results. The aggregated values and charts presented in our research can be obtained as outlined in the [experiment instructions](/instructions).
 
 
 ## Proof of Concept:
@@ -54,5 +53,5 @@ As proof of concept we applied our methodology to the TPC-H benchmark, a widely-
 
 Information on how to replicate the experiments can be found in the [instructions folder](/instructions).
 
-The results of our experiments are located in this repository in the [results folder](/results)
+The results of our experiments are located in this repository in the [results folder](/results).
 
