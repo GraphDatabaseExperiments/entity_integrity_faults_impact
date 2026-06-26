@@ -1,4 +1,4 @@
-# determine if scenario has affect on query to speed up experiments
+# determine if scenario has affect on query to speed up experiments 
 
 def is_affected(query_number, scaling_factor, table, error) -> bool:
     
