@@ -1,4 +1,4 @@
-# How Much Entity Integrity Matters - A Methodology to Quantify the Impact of Entity Integrity Faults
+# How Much Entity Integrity Matters - A Methodology to Quantify the Impact of Entity Integrity Faults 
 
 Entity integrity plays a crucial role in ensuring data quality within a relational database. When violated, it leads to various faults that affect the accuracy and reliability of database queries. This repository provides scripts and artifacts from our experiments using a methodology for quantifying the impact of entity integrity faults on database query performance.
 
